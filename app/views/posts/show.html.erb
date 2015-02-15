@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+
+<h2>
+  <%= @post.titre %>
+</h2>
+
+<p>
+  <%= @post.corps %>
+</p>
+
+<p>
+  <%= @post.auteur %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
+
+<h3>Commentaires</h3>
+
+<%= render @post.commentaires %>
+
+<h4>Nouveau commentaire</h4>
+
+<%= form_for [@post, @post.commentaires.build] do |f| %>
+  <div class='field'>
+    <%= f.label :auteur %>
+    <%= f.text_field :auteur %>
+  </div>
+  <div class='field'>
+    <%= f.label :corps %>
+    <%= f.text_area :corps %>
+  </div>
+  <div class='field'>
+    <%= f.label :mail %>
+    <%= f.email_field :mail %>
+  </div>
+  <div class='actions'>
+    <%= f.submit %>
+  </div>
+<% end %>

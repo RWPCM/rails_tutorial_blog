@@ -1,0 +1,7 @@
+<p><%= commentaire.auteur %> a dit :</p>
+
+<blockquote>
+  <%= commentaire.corps %>
+</blockquote>
+
+<p><%= link_to 'destroy', [commentaire.post, commentaire], method: :delete, data: { confirm: 'Etes-vous sûr ?'} %></p>

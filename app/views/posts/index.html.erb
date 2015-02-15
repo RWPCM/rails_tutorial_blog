@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<% @posts.each do |post| %>
+<h2><%= link_to post.titre, post %></h2>
+<p><i>Créé le <%= date_simple post.created_at %></i></p>
+<p><%= post.corps %></p>
+<p>
+  <%= link_to 'Editer', edit_post_path(post) %>
+  <%= link_to 'Supprimer', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>
+<% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nouveau post', new_post_path %>
